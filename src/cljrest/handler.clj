@@ -10,6 +10,8 @@
 (defroutes app-routes
   (GET "/invoice" []
        (response (query/get-invoices)))
+  (GET "/invoice/total" []
+       (response (query/get-invoices)))
   (GET "/invoice/:id" [id]
        (response (query/get-invoice id)))
   (POST "/invoice" request
