@@ -1,12 +1,20 @@
 (defproject cljrest "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "Sample rest API"
+  :url "http://localhost:3000"
   :min-lein-version "2.0.0"
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [compojure "1.3.1"]
-                 [ring/ring-defaults "0.1.2"]]
-  :plugins [[lein-ring "0.8.13"]]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+                 [compojure "1.3.2"]
+                 [ring/ring-core "1.3.2"]
+                 [ring/ring-json "0.3.1"]
+                 [ring/ring-defaults "0.1.4"]
+                 [yesql "0.4.0"]
+                 [ragtime/ragtime.sql.files "0.3.8"]
+                 [mysql/mysql-connector-java "5.1.6"]]
+  :plugins [[lein-ring "0.8.13"]
+            [ragtime/ragtime.lein "0.3.8"]]
   :ring {:handler cljrest.handler/app}
+  :ragtime {:migrations ragtime.sql.files/migrations
+            :database "jdbc:mysql://localhost:3306/cljrest?user=root&password=sriq@"}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}})
