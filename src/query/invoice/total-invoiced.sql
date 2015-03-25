@@ -1,4 +1,3 @@
 SELECT
-    SUM(amount)
-FROM invoice I
-GROUP BY I.id;
+    SUM(amount) AS total
+FROM invoice I;

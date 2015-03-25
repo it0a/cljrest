@@ -11,7 +11,7 @@
   (GET "/invoice" []
        (response (query/get-invoices)))
   (GET "/invoice/total" []
-       (response (query/get-invoices)))
+       (response (query/sum-invoices)))
   (GET "/invoice/:id" [id]
        (response (query/get-invoice id)))
   (POST "/invoice" request
