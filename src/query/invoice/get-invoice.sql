@@ -1,4 +1,4 @@
 SELECT
     I.*
 FROM invoice I
-WHERE I.id = ?;
+WHERE I.id = :id;
